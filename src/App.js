@@ -5,6 +5,7 @@ import Footer from './Pages/Shared/Footer/Footer';
 import { Route, Routes } from 'react-router-dom';
 import Home from './Pages/Home/Home/Home';
 import NotFound from './Pages/NotFound/NotFound';
+import Services from './Pages/Services/Services';
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home/>}></Route>
           <Route path='/home' element={<Home/>}></Route>
-          <Route path='/services' element={<Home/>}></Route>
+          <Route path='/services' element={<Services/>}></Route>
           <Route path='/blogs' element={<Home/>}></Route>
           <Route path='/About' element={<Home/>}></Route>
           <Route path='/login' element={<Home/>}></Route>
