@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { fab } from '@fortawesome/free-brands-svg-icons'
+import { fab, faFacebook, faGithub, faGoogle } from '@fortawesome/free-brands-svg-icons'
 import React from "react";
-import { useSignInWithGithub, useSignInWithGoogle } from "react-firebase-hooks/auth";
+import { useSignInWithFacebook, useSignInWithGithub, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
 
@@ -9,9 +9,10 @@ const SocialLogin = () => {
     const navigate = useNavigate();
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
   const [signInWithGithub, user1, loading1, error1] = useSignInWithGithub(auth);
+  const [signInWithFacebook, user2, loading2, error2] = useSignInWithFacebook(auth);
 
   let errorMsg;
-  if (error || error1) {
+  if (error || error1 || error2) {
     errorMsg = (
       <div>
         <p>Error: {error?.message} {error1?.message}</p>
@@ -19,7 +20,7 @@ const SocialLogin = () => {
     );
   }
 
-  if(user || user1){
+  if(user || user1 || user2){
       navigate('/home');
   }
 
@@ -36,14 +37,15 @@ const SocialLogin = () => {
           onClick={() => signInWithGoogle()}
           className="btn btn-primary d-block mx-auto mb-3 w-25"
         >
-          <FontAwesomeIcon icon={"google"} /> Google Sign In
+          <FontAwesomeIcon icon={faGoogle} /> Google Sign In
         </button>
-        <button className="btn btn-primary d-block mx-auto mb-3 w-25">
-          <FontAwesomeIcon icon={"google"} /> Facebook Sign In
+        <button onClick={() => signInWithFacebook()}
+         className="btn btn-primary d-block mx-auto mb-3 w-25">
+          <FontAwesomeIcon icon={faFacebook} /> Facebook Sign In
         </button>
         <button  onClick={()=> signInWithGithub()}
         className="btn btn-primary d-block mx-auto mb-3 w-25">
-          <FontAwesomeIcon icon={"google"} /> Github Sign In
+          <FontAwesomeIcon icon={faGithub} /> Github Sign In
         </button>
       </div>
     </div>

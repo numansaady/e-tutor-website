@@ -54,7 +54,7 @@ const Login = () => {
           Login
         </Button>
       </Form>
-      <p style={{width: '400px', margin: '10px auto'}}>New to Genious Car? <Link to='/SignUp' className="text-primary text-decoration-none">Please Register</Link></p>
+      <p style={{width: '400px', margin: '10px auto'}}>Have no Account? <Link to='/SignUp' className="text-primary text-decoration-none">Please Register</Link></p>
 
       <p style={{width: '400px', margin: '10px auto'}}>Forget Password? <Link to='/SignUp' className="text-primary text-decoration-none" onClick={resetPassword}>Reset Password</Link></p>
 
