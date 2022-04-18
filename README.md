@@ -1,6 +1,23 @@
-# Getting Started with Create React App
+# **`E-Tutor`**
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Click the link: [E-Tutor](https://github.com/facebook/create-react-app).
+
+## Included Features in this project
+
+- **`Added A banner about e-tutor`**
+- **`Added 3 Service `**
+- **`Some Briefing about firebase, authentication and authorization`**
+- **`Add Private route`**
+- **`Add Validation form for user`**
+
+## Included Technology in this project
+
+- **[React](https://reactjs.org/)**
+- **[React Router](https://reactrouter.com/)**
+- **[React firebase Hooks](https://github.com/CSFrequency/react-firebase-hooks)**
+- **[React Toatify](https://toastify.org/en-US/)**
+- **[React-Bootstrap](https://react-bootstrap.github.io/)**
+
 
 ## Available Scripts
 
