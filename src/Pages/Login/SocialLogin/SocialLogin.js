@@ -2,17 +2,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { fab, faFacebook, faGithub, faGoogle } from '@fortawesome/free-brands-svg-icons'
 import React from "react";
 import { useSignInWithFacebook, useSignInWithGithub, useSignInWithGoogle } from "react-firebase-hooks/auth";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
 
 const SocialLogin = () => {
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
   const [signInWithGithub, user1, loading1, error1] = useSignInWithGithub(auth);
-  const [signInWithFacebook, user2, loading2, error2] = useSignInWithFacebook(auth);
 
   let errorMsg;
-  if (error || error1 || error2) {
+  if (error || error1) {
     errorMsg = (
       <div>
         <p>Error: {error?.message} {error1?.message}</p>
@@ -20,8 +21,8 @@ const SocialLogin = () => {
     );
   }
 
-  if(user || user1 || user2){
-      navigate('/home');
+  if(user || user1){
+    navigate(from, {replace: true});
   }
 
   return (
@@ -38,10 +39,6 @@ const SocialLogin = () => {
           className="btn btn-primary d-block mx-auto mb-3 w-25"
         >
           <FontAwesomeIcon icon={faGoogle} /> Google Sign In
-        </button>
-        <button onClick={() => signInWithFacebook()}
-         className="btn btn-primary d-block mx-auto mb-3 w-25">
-          <FontAwesomeIcon icon={faFacebook} /> Facebook Sign In
         </button>
         <button  onClick={()=> signInWithGithub()}
         className="btn btn-primary d-block mx-auto mb-3 w-25">

@@ -3,4 +3,28 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 40px;
   }
+
+.course-bx-holder {
+    text-align: center;
+    /* background: #958065; */
+    border-radius: 15px;
+    box-shadow: 0 0 62px -4px rgb(0 0 0 / 20%);
+    margin-bottom: 60px;
+}
+.crs-img-hlder {
+  height: 180px;
+  overflow: hidden;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -ms-transition: 0.3s;
+  -moz-transition: 0.3s;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+@media screen and (max-width: 767px) {
+  .services-container{
+    grid-template-columns: 1fr;
+  }
+}
   

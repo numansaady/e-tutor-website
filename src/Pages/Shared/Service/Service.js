@@ -11,8 +11,8 @@ const Service = ({service}) => {
     }
     return (
         <div className='service-item'>
-            <img src={img} className='w-100' alt="" />
-            <h4>{name}</h4>
+            <img className='crs-img-hlder w-100' src={img} alt="" />
+            <h4 className='my-3'>{name}</h4>
             <p>Price: {price}</p>
             <p><small>{description}</small></p>
             <button onClick={()=>handleServiceDetail(id)} className='btn btn-primary'>Book: {name}</button>

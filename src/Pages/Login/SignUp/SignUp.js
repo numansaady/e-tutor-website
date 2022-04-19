@@ -31,7 +31,7 @@ const SignUp = () => {
       setUserInfo({ ...userInfo, email: e.target.value });
       setErrors({ ...errors, email: "" });
     } else {
-      setErrors({ ...errors, email: "Invalid email" });
+      setErrors({ ...errors, email: "Please provide a valid email" });
       setUserInfo({ ...userInfo, email: "" });
     }
   };
@@ -43,7 +43,7 @@ const SignUp = () => {
       setUserInfo({ ...userInfo, password: e.target.value });
       setErrors({ ...errors, password: "" });
     } else {
-      setErrors({ ...errors, password: "Minimum 6 characters!" });
+      setErrors({ ...errors, password: "Password should be minimum 6 characters!" });
       setUserInfo({ ...userInfo, password: "" });
     }
   };
@@ -60,7 +60,6 @@ const SignUp = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log(userInfo);
     createUserWithEmailAndPassword(userInfo.email, userInfo.password);
   };
 
@@ -68,13 +67,13 @@ const SignUp = () => {
     if (hookError) {
       switch (hookError?.code) {
         case "auth/invalid-email":
-          toast("Invalid email provided, please provide a valid email");
+          toast("Please provide a valid email");
           break;
         case "auth/invalid-password":
           toast("Wrong password. Intruder!!");
           break;
         default:
-          toast("something went wrong");
+          toast("Please fill up form carefuly");
       }
     }
   }, [hookError]);
@@ -123,8 +122,6 @@ const SignUp = () => {
 
         <button>Sign up</button>
 
-        {/* {error && <p className="error-message">{error}</p> } */}
-        {/* {hookError && <p className="error-message">{hookError?.message}</p>} */}
         <ToastContainer />
       </form>
     </div>
